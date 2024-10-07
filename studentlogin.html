@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STUDENT LOGIN FORM</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      .oval-button {
+        padding: 10px 60px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .flexing {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        height: 94vh;
+      }
+      .flexing form {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        width: 50%;
+        height: 100%;
+        gap: 20px;
+        justify-content: center;
+      }
+      .flexing form input {
+        height: 45px;
+        outline: 0;
+        border: 0;
+        padding-left: 10px;
+        border-radius: 5px;
+        margin: 0 50px;
+      }
+      .flexing form button {
+        margin: 0 50px;
+      }
+      .imaging {
+        justify-content: center;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        padding-left: 110px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flexing">
+      <div class="imaging">
+        <img src="image.png" alt="Background Image" />
+      </div>
+
+      <form
+        style="
+          text-align: center;
+          background-color: lightblue;
+          margin-top: 50px;
+        "
+      >
+        <h2>STUDENT LOGIN</h2>
+        <input type="text" placeholder="Student Name" />
+        <input type="text" placeholder="example@example.com" />
+        <input type="text" placeholder="Password" />
+        <button class="oval-button">LOGIN</button>
+        <a
+          href="studentsignup.html"
+          style="color: blue; font-size: smaller; text-decoration: none"
+          >CREATE NEW ACCOUNT</a
+        >
+      </form>
+    </div>
+  </body>
+</html>
