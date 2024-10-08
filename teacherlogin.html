@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            user-select: none;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .illustration {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form {
+            flex: 1;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form form {
+            width: 25rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3.125rem;
+            margin-bottom: -10px;
+            font-weight: 900;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            color: #888;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 30px;
+            font-size: 16px;
+            width: 87%;
+        }
+
+        i.fas {
+            font-size: 25px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .student-login {
+            text-align: left;
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Teacher Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h1>Teacher Login</h1>
+            <p>Hey, to continue! Enter your details</p>
+            <form id="loginForm">
+                <div class="input-container">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Teacher Name" required id="teacherName" />
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Enter E-mail" required id="email" />
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Enter Password" required id="password" />
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <a href="#" class="student-login">Do you want student login?</a>
+        </div>
+        <div class="illustration">
+            <img src="C:\Users\Admin\OneDrive\Desktop\CSS\WhatsApp Image 2024-10-08 at 18.43.16_8e85b627.jpg" alt="Illustration" />
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            // Get input values
+            const teacherName = document.getElementById('teacherName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // RegEx for validating Teacher Name (capitalized and allowing multiple names)
+            const nameRegex = /^[A-Z][a-z]+(?:\s[A-Z][a-z]+)*$/;
+
+            // RegEx for validating Email (more comprehensive)
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            // RegEx for validating Password (minimum 6 characters, at least one letter and one number)
+            const passwordRegex = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{6,}$/;
+
+            let isValid = true; // Flag to track validity
+
+            // Validate Teacher Name
+            if (!nameRegex.test(teacherName)) {
+                alert("Teacher Name must have the first letter capitalized for each name.");
+                isValid = false;
+            }
+
+            // Validate Email
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                isValid = false;
+            }
+
+            // Validate Password
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 6 characters long and include at least one letter and one number.");
+                isValid = false;
+            }
+
+            // Prevent form submission if validation fails
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
