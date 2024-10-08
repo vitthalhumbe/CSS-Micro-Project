@@ -1,89 +1,190 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>STUDENT LOGIN FORM</title>
-    <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background-color: rgb(255, 255, 255);
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
-      }
-      .oval-button {
-        padding: 10px 60px;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      .flexing {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        height: 94vh;
-      }
-      .flexing form {
-        display: flex;
-        flex-direction: column;
-        padding: 30px;
-        width: 50%;
-        height: 100%;
-        gap: 20px;
-        justify-content: center;
-      }
-      .flexing form input {
-        height: 45px;
-        outline: 0;
-        border: 0;
-        padding-left: 10px;
-        border-radius: 5px;
-        margin: 0 50px;
-      }
-      .flexing form button {
-        margin: 0 50px;
-      }
-      .imaging {
-        justify-content: center;
-        height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
-        padding-left: 110px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="flexing">
-      <div class="imaging">
-        <img src="image.jpg" alt="Background Image" />
-      </div>
+<html lang="en">
 
-      <form
-        style="
-          text-align: center;
-          background-color: lightblue;
-          margin-top: 50px;
-        "
-      >
-        <h2>STUDENT LOGIN</h2>
-        <input type="text" placeholder="Student Name" />
-        <input type="text" placeholder="example@example.com" />
-        <input type="text" placeholder="Password" />
-        <button class="oval-button">LOGIN</button>
-        <a
-          href="studentsignup.html"
-          style="color: blue; font-size: smaller; text-decoration: none"
-          >CREATE NEW ACCOUNT</a
-        >
-      </form>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            user-select: none;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .illustration {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form {
+            flex: 1;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form form {
+            width: 25rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3.125rem;
+            margin-bottom: -10px;
+            font-weight: 900;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            color: #888;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 30px;
+            font-size: 16px;
+            width: 87%;
+        }
+
+        i.fas {
+            font-size: 25px;
+        }
+
+        .input-container select {
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 50px;
+            font-size: 16px;
+            width: 100%;
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .teacher-login {
+            text-align: left;
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Student Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="illustration">
+            <img src="student-login-image.png" alt="Illustration" />
+        </div>
+        <div class="login-form">
+            <h1>Student Login</h1>
+            <p>Hey, to continue! Enter your details</p>
+            <form id="loginForm">
+                <div class="input-container">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Student Name" required id="studentName"/>
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Enter Password" required id="password"/>
+                </div>
+                <div class="input-container "> <!-- Add 'select-container' class -->
+                    <i class="fas fa-calendar-alt"></i>
+                    <select required>
+                        <option value="" disabled selected>Select Year</option>
+                        <option value="1">First Year</option>
+                        <option value="2">Second Year</option>
+                        <option value="3">Third Year</option>
+                    </select>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+            <a href="#" class="teacher-login">do you want teacher login?</a>
+        </div>
     </div>
-  </body>
+    <script> document.getElementById('loginForm').addEventListener('submit', function(event) {
+        // Get input values
+        const studentName = document.getElementById('studentName').value;
+        const password = document.getElementById('password').value;
+
+        // RegEx for validating Student Name (capitalized)
+        const nameRegex = /^[A-Z][a-z](?:\s[A-Z][a-z])*$/;
+
+        // RegEx for validating Password (numbers only)
+        const passwordRegex = /^[0-9]+$/;
+
+        let isValid = true; // Flag to track validity
+
+        // Validate Student Name
+        if (!nameRegex.test(studentName)) {
+            alert("Student Name must have the first letter capitalized for each name.");
+            isValid = false;
+        }
+
+        // Validate Password
+        if (!passwordRegex.test(password)) {
+            alert("Password must contain only numbers.");
+            isValid = false;
+        }
+
+        // Prevent form submission if validation fails
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+
+    </script>
+</body>
+
 </html>
