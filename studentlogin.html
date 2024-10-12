@@ -153,38 +153,37 @@
             <a href="#" class="teacher-login">do you want teacher login?</a>
         </div>
     </div>
-    <script> document.getElementById('loginForm').addEventListener('submit', function(event) {
-        // Get input values
-        const studentName = document.getElementById('studentName').value;
-        const password = document.getElementById('password').value;
-
-        // RegEx for validating Student Name (capitalized)
-        const nameRegex = /^[A-Z][a-z](?:\s[A-Z][a-z])*$/;
-
-        // RegEx for validating Password (numbers only)
-        const passwordRegex = /^[0-9]+$/;
-
-        let isValid = true; // Flag to track validity
-
-        // Validate Student Name
-        if (!nameRegex.test(studentName)) {
-            alert("Student Name must have the first letter capitalized for each name.");
-            isValid = false;
-        }
-
-        // Validate Password
-        if (!passwordRegex.test(password)) {
-            alert("Password must contain only numbers.");
-            isValid = false;
-        }
-
-        // Prevent form submission if validation fails
-        if (!isValid) {
-            event.preventDefault();
-        }
-    });
-
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+    
+            const username = document.getElementById('studentName').value; // Use 'studentName'
+            const password = document.getElementById('password').value;
+    
+            // Send login request to the server
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password }) // Use 'studentName'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'User not found' || data.message === 'Invalid credentials') {
+                        alert(data.message);
+                    } else {
+                        alert("Login successful! Redirecting to info.html...");
+                        window.location.href = 'info.html'; // Redirect to info.html
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
     </script>
+    
+    
 </body>
 
 </html>
