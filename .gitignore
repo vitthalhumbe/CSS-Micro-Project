@@ -1,0 +1,10 @@
+# Ignore the node_modules folder
+node_modules/
+
+# Ignore the .git folder (optional, but generally unnecessary as it should not be pushed)
+.git/
+
+.env           
+# Ignore other files or folders you don’t want to track
+*.log          # Ignore log files
+.DS_Store      # Ignore macOS Finder files
